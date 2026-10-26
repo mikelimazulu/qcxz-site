@@ -96,7 +96,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top nav { display: flex; gap: 20px; margin-left: auto; }
 .top nav a { text-decoration: none; font-weight: 700; font-size: var(--s-1); letter-spacing: .1em; text-transform: uppercase; color: var(--steel); }
 .top nav a:hover { color: var(--ink); }
-@media (max-width: 700px) { .top nav { display: none; } }
+.top .top-cta { display: none; margin-left: auto; padding: 10px 14px; font-size: .85rem; }
+@media (max-width: 700px) { .top nav { display: none; } .top .top-cta { display: inline-flex; } }
 
 /* ---------- buttons ---------- */
 .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
@@ -118,12 +119,19 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   background: radial-gradient(40% 35% at 50% 32%, color-mix(in srgb, var(--cyan) 18%, transparent), transparent 70%),
               radial-gradient(30% 30% at 62% 55%, color-mix(in srgb, var(--magenta) 14%, transparent), transparent 70%); }
 .hero .wrap { position: relative; display: grid; justify-items: center; gap: 22px; }
-.logo { width: min(440px, 82vw); aspect-ratio: 1; max-width: 100%;
+.logo { width: min(440px, 82vw); height: auto; aspect-ratio: 1; max-width: 100%;
   -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 71%); mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 71%);
   animation: rise .9s ease-out both; }
 @keyframes rise { from { transform: translateY(10px) scale(.98); filter: brightness(.6); } to { transform: none; filter: none; } }
 .hero h1 { font-size: clamp(2.1rem, 1.4rem + 3vw, 3.9rem); }
 .hero h1 span { color: var(--cyan); }
+@media (max-width: 700px) {
+  .hero { padding-block: 12px 48px; }
+  .hero .wrap { gap: 14px; }
+  .logo { width: min(230px, 58vw, 30svh); }
+  .hero .lede { font-size: var(--s0); }
+  .btns .btn { flex: 1 1 100%; justify-content: center; }
+}
 .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .chip { font-size: var(--s-1); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--steel); }
 
@@ -166,7 +174,7 @@ footer .wrap { display: grid; justify-items: center; gap: 14px; text-align: cent
 footer .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 400 1rem/1 var(--f-display); letter-spacing: .06em; text-transform: uppercase; }
 footer img { width: 40px; height: 40px; }
 footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
-footer nav a { text-decoration: none; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+footer nav a { text-decoration: none; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 12px 6px; }
 footer nav a:hover { color: var(--ink); }
 footer p { max-width: none; opacity: .8; }
 </style>
@@ -174,6 +182,7 @@ footer p { max-width: none; opacity: .8; }
 <header class="top">
   <div class="wrap">
     <a class="mark" href="#top"><img src="assets/logo.webp" alt="">QCXZ</a>
+    <a class="btn btn--main top-cta" id="discordTop" href="#rejoindre">Discord</a>
     <nav aria-label="Sections">
       <a href="#serveur">Le serveur</a>
       <a href="#images">Images</a>
@@ -290,7 +299,7 @@ document.querySelectorAll(".feat [data-full]").forEach(btn => btn.addEventListen
 box.addEventListener("click", () => box.close());
 
 if (DISCORD_URL) {
-  for (const id of ["discordBtn", "discordBtn2"]) {
+  for (const id of ["discordTop", "discordBtn", "discordBtn2"]) {
     const a = document.getElementById(id);
     a.href = DISCORD_URL; a.target = "_blank"; a.rel = "noopener";
   }
