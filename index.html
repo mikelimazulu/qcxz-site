@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<title>QuebecExileZ RolePlay</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="QuebecExileZ RolePlay (QCXZ) : le serveur roleplay québécois sur Arma Reforger. PC et consoles.">
+<meta property="og:title" content="QuebecExileZ RolePlay · QCXZ">
+<meta property="og:description" content="Le roleplay québécois sur Arma Reforger. Cherche QCXZ dans les serveurs communautaires.">
+<meta property="og:image" content="assets/shots/01-hero.jpg">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Figtree:wght@400;500;700&display=swap">
+<style>
+/* Layout: the logo's world — a dark violet-black night, the QCXZ mark glowing at the top, short bands below it.
+   Cyan carries the actions, neon green marks the legal life, magenta the illegal one, steel blue for quiet text.
+   Deliberately single-theme (dark, like the logo), every colour set explicitly. */
+:root {
+  color-scheme: dark;
+  --bg: #0e0c14;            /* logo backdrop */
+  --bg-2: #15121e;          /* raised band */
+  --line: #2a2538;
+  --ink: #eef8ff;           /* logo lettering white */
+  --steel: #8fc3dd;         /* logo lettering blue */
+  --cyan: #3ad8ff;
+  --green: #3cf04a;
+  --magenta: #ee2aec;
+  --f-display: "Russo One", "Arial Black", Impact, sans-serif;
+  --f-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --s-1: clamp(.82rem, .8rem + .1vw, .9rem);
+  --s0: clamp(1rem, .96rem + .2vw, 1.1rem);
+  --s1: clamp(1.2rem, 1.08rem + .5vw, 1.5rem);
+  --s2: clamp(2rem, 1.5rem + 2vw, 3.2rem);
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 var(--s0)/1.6 var(--f-body); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.05; text-wrap: balance; margin: 0; text-transform: uppercase; letter-spacing: .02em; }
+h2 { font-size: var(--s2); }
+h3 { font-size: var(--s1); }
+p { margin: 0; max-width: 60ch; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: clamp(56px, 8vw, 104px); border-top: 1px solid var(--line); }
+.band--raised { background: var(--bg-2); }
+.eyebrow { font: 700 var(--s-1)/1 var(--f-body); letter-spacing: .16em; text-transform: uppercase; color: var(--cyan); }
+.lede { color: var(--steel); font-size: var(--s1); line-height: 1.45; }
+.stack { display: grid; gap: 18px; }
+.center { justify-items: center; text-align: center; }
+.center p { margin-inline: auto; }
+
+/* ---------- top bar ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 14px; padding-block: 8px; }
+.top .mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 400 1.1rem/1 var(--f-display); letter-spacing: .06em; }
+.top .mark img { width: 40px; height: 40px; }
+.top nav { display: flex; gap: 20px; margin-left: auto; }
+.top nav a { text-decoration: none; font-weight: 700; font-size: var(--s-1); letter-spacing: .1em; text-transform: uppercase; color: var(--steel); }
+.top nav a:hover { color: var(--ink); }
+@media (max-width: 700px) { .top nav { display: none; } }
+
+/* ---------- buttons ---------- */
+.btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.btn { display: inline-flex; align-items: center; text-decoration: none; font: 400 1.05rem/1 var(--f-display); letter-spacing: .06em; text-transform: uppercase; padding: 16px 24px; border-radius: 8px; border: 2px solid var(--cyan); cursor: pointer; transition: box-shadow .2s, transform .2s; }
+.btn--main { background: var(--cyan); color: var(--bg); }
+.btn--main:hover { box-shadow: 0 0 28px color-mix(in srgb, var(--cyan) 60%, transparent); transform: translateY(-1px); }
+.btn--ghost { color: var(--ink); background: transparent; border-color: color-mix(in srgb, var(--magenta) 70%, var(--line)); }
+.btn--ghost:hover { box-shadow: 0 0 24px color-mix(in srgb, var(--magenta) 45%, transparent); }
+.hint { font-size: var(--s-1); color: var(--steel); }
+.hint kbd { font: 700 .95em/1 var(--f-body); color: var(--bg); background: var(--ink); padding: 3px 8px; border-radius: 4px; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; overflow: hidden; padding-block: clamp(28px, 5vw, 64px) clamp(56px, 8vw, 100px); text-align: center; }
+.hero { background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 70%, transparent), color-mix(in srgb, var(--bg) 82%, transparent) 60%, var(--bg)),
+  url("assets/shots/01-hero.jpg") center 40% / cover no-repeat, var(--bg); }
+.hero .lede { color: var(--ink); text-shadow: 0 1px 12px var(--bg); }
+.hero .chip { background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.hero::before { content: ""; position: absolute; inset: -20% -30% auto; height: 120%; pointer-events: none;
+  background: radial-gradient(40% 35% at 50% 32%, color-mix(in srgb, var(--cyan) 18%, transparent), transparent 70%),
+              radial-gradient(30% 30% at 62% 55%, color-mix(in srgb, var(--magenta) 14%, transparent), transparent 70%); }
+.hero .wrap { position: relative; display: grid; justify-items: center; gap: 22px; }
+.logo { width: min(440px, 82vw); aspect-ratio: 1; max-width: 100%;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 71%); mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 71%);
+  animation: rise .9s ease-out both; }
+@keyframes rise { from { transform: translateY(10px) scale(.98); filter: brightness(.6); } to { transform: none; filter: none; } }
+.hero h1 { font-size: clamp(2.1rem, 1.4rem + 3vw, 3.9rem); }
+.hero h1 span { color: var(--cyan); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.chip { font-size: var(--s-1); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--steel); }
+
+/* ---------- features ---------- */
+.feats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.feat { padding: 0 0 22px; border-radius: var(--radius); background: var(--bg); border: 1px solid var(--line); display: grid; gap: 10px; align-content: start; overflow: hidden; }
+.feat > :not(.zoom) { margin-inline: 22px; }
+.feat .zoom { display: block; padding: 0; border: 0; border-bottom: 1px solid var(--line); margin-bottom: 10px; background: none; overflow: hidden; cursor: zoom-in; }
+.feat .zoom img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .4s; }
+.feat .zoom:hover img { transform: scale(1.04); }
+.feat h3 { display: flex; align-items: center; gap: 10px; }
+.feat h3::before { content: ""; width: 12px; height: 12px; transform: rotate(45deg); background: var(--c, var(--cyan)); box-shadow: 0 0 12px var(--c, var(--cyan)); flex: none; }
+.feat p { color: var(--steel); }
+.feat--green { --c: var(--green); }
+.feat--magenta { --c: var(--magenta); }
+
+/* ---------- stats ---------- */
+.stats { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(20px, 5vw, 64px); }
+.stat { display: grid; justify-items: center; gap: 4px; }
+.stat b { font: 400 clamp(2.4rem, 1.8rem + 2.4vw, 3.6rem)/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--steel); font-size: var(--s-1); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+
+/* ---------- screenshot slots ---------- */
+.lightbox { padding: 0; border: 0; background: transparent; max-width: min(96vw, 1600px); }
+.lightbox::backdrop { background: color-mix(in srgb, var(--bg) 92%, transparent); }
+.lightbox img { width: 100%; height: auto; max-height: 90vh; object-fit: contain; border-radius: var(--radius); cursor: zoom-out; }
+.shot { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 9; max-width: 100%; border: 1px solid var(--line);
+  background: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--line) 60%, transparent) 14px 15px), var(--bg-2); }
+.shot img, .shot video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- join steps ---------- */
+.steps { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); counter-reset: step; text-align: left; }
+.step { counter-increment: step; padding: 18px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg); display: grid; gap: 6px; }
+.step::before { content: counter(step); font: 400 1.6rem/1 var(--f-display); color: var(--green); }
+.steps { justify-self: stretch; }
+.step p { color: var(--steel); margin-inline: 0; }
+
+footer { border-top: 1px solid var(--line); background: var(--bg); padding-block: 36px max(36px, env(safe-area-inset-bottom, 0px)); color: var(--steel); font-size: var(--s-1); }
+footer .wrap { display: grid; justify-items: center; gap: 14px; text-align: center; }
+footer .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 400 1rem/1 var(--f-display); letter-spacing: .06em; text-transform: uppercase; }
+footer img { width: 40px; height: 40px; }
+footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
+footer nav a { text-decoration: none; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+footer nav a:hover { color: var(--ink); }
+footer p { max-width: none; opacity: .8; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top"><img src="assets/logo.webp" alt="">QCXZ</a>
+    <nav aria-label="Sections">
+      <a href="#serveur">Le serveur</a>
+      <a href="#images">Images</a>
+      <a href="#rejoindre">Rejoindre</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <img class="logo" src="assets/logo.webp" alt="Logo QCXZ" width="440" height="440">
+      <p class="eyebrow">QuebecExileZ RolePlay</p>
+      <h1>Le roleplay québécois sur Everon est <span>de retour</span>.</h1>
+      <p class="lede">Nouveau mod, plus stable, nouvelle interface. C'est le bon moment pour te remplir les poches avant que la ville se remplisse.</p>
+      <div class="chips">
+        <span class="chip">Arma Reforger</span>
+        <span class="chip">100 % en français</span>
+        <span class="chip">PC + consoles</span>
+      </div>
+      <div class="btns">
+        <a class="btn btn--main" id="discordBtn" href="#rejoindre">Rejoindre le Discord</a>
+        <a class="btn btn--ghost" href="#images">Voir la bande-annonce</a>
+      </div>
+      <p class="hint">Dans le jeu : Serveurs communautaires › recherche <kbd>QCXZ</kbd></p>
+    </div>
+  </section>
+
+  <!-- ================= SERVER ================= -->
+  <section class="band band--raised" id="serveur">
+    <div class="wrap stack" style="gap: 40px;">
+      <div class="stack center">
+        <p class="eyebrow">Le serveur</p>
+        <h2>Ta vie, tes règles.</h2>
+      </div>
+      <div class="feats">
+        <div class="feat feat--green"><button class="zoom" type="button" data-full="assets/shots/05-work.jpg" aria-label="Agrandir : Un joueur récolte du sable près d'une dépanneuse"><img src="assets/shots/05-work-small.jpg" alt="Un joueur récolte du sable près d'une dépanneuse" loading="lazy" width="1200" height="675"></button><h3>Gagne ta vie</h3><p>Récolte, transforme et vends. Achète tes licences pour les métiers payants.</p></div>
+        <div class="feat feat--magenta"><button class="zoom" type="button" data-full="assets/shots/04-gang.jpg" aria-label="Agrandir : Deux hommes en complet devant un camion noir"><img src="assets/shots/04-gang-small.jpg" alt="Deux hommes en complet devant un camion noir" loading="lazy" width="1200" height="675"></button><h3>Ou pas</h3><p>Le crime paie plus. La police aussi est là.</p></div>
+        <div class="feat"><button class="zoom" type="button" data-full="assets/shots/02-police.jpg" aria-label="Agrandir : Arrestation de nuit à une station-service"><img src="assets/shots/02-police-small.jpg" alt="Arrestation de nuit à une station-service" loading="lazy" width="1200" height="675"></button><h3>Police</h3><p>Rejoins les forces de l'ordre : patrouilles, poursuites, arrestations.</p></div>
+        <div class="feat"><button class="zoom" type="button" data-full="assets/shots/03-cars.jpg" aria-label="Agrandir : Des chars de luxe alignés devant un garage"><img src="assets/shots/03-cars-small.jpg" alt="Des chars de luxe alignés devant un garage" loading="lazy" width="1200" height="675"></button><h3>Véhicules</h3><p>Des centaines de chars, des motos, des bateaux et des hélicos. Ton char t'attend où tu l'as laissé.</p></div>
+        <div class="feat feat--green"><button class="zoom" type="button" data-full="assets/shots/07-housing.jpg" aria-label="Agrandir : Une maison sur la côte"><img src="assets/shots/07-housing-small.jpg" alt="Une maison sur la côte" loading="lazy" width="1200" height="675"></button><h3>Maisons et gangs</h3><p>Achète ta maison, monte ton gang, joue en groupe avec tes amis.</p></div>
+        <div class="feat feat--magenta"><button class="zoom" type="button" data-full="assets/shots/06-phone.jpg" aria-label="Agrandir : Le téléphone ouvert au bord de la mer"><img src="assets/shots/06-phone-small.jpg" alt="Le téléphone ouvert au bord de la mer" loading="lazy" width="1200" height="675"></button><h3>Ton cell</h3><p>Textos, appels, banque, carte et un Twitter pour toute la ville.</p></div>
+      </div>
+      <div class="stats" aria-label="Le serveur en chiffres">
+        <div class="stat"><b>569</b><span>véhicules</span></div>
+        <div class="stat"><b>52</b><span>maisons</span></div>
+        <div class="stat"><b>26</b><span>boutiques</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= IMAGES ================= -->
+  <section class="band" id="images">
+    <div class="wrap stack" style="gap: 32px;">
+      <div class="stack center">
+        <p class="eyebrow">En vidéo</p>
+        <h2>La bande-annonce.</h2>
+      </div>
+      <figure class="shot has-img">
+        <video controls preload="none" playsinline poster="assets/shots/trailer-poster.jpg" src="assets/video/trailer.mp4"></video>
+      </figure>
+      <p class="hint center" id="trailerLink" hidden>Regarder sur YouTube : <a id="trailerA" href="#" target="_blank" rel="noopener">ouvrir la vidéo</a></p>
+    </div>
+  </section>
+
+  <!-- ================= JOIN ================= -->
+  <section class="band band--raised" id="rejoindre">
+    <div class="wrap stack center" style="gap: 32px;">
+      <div class="stack center">
+        <p class="eyebrow">Rejoindre</p>
+        <h2>Cinq minutes et t'es en ville.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Cherche QCXZ</h3><p>Arma Reforger › Serveurs communautaires.</p></div>
+        <div class="step"><h3>Télécharge</h3><p>Les mods s'installent tout seuls la première fois.</p></div>
+        <div class="step"><h3>Relie ton Discord</h3><p>Écris le code affiché dans le salon indiqué.</p></div>
+        <div class="step"><h3>Crée ton perso</h3><p>Et la ville est à toi.</p></div>
+      </div>
+      <div class="btns">
+        <a class="btn btn--main" id="discordBtn2" href="#rejoindre">Rejoindre le Discord</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Image agrandie"><img alt=""></dialog>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/logo.webp" alt="">QuebecExileZ RolePlay</a>
+    <nav aria-label="Pied de page">
+      <a href="#serveur">Le serveur</a>
+      <a href="#images">Images</a>
+      <a href="#rejoindre">Rejoindre</a>
+    </nav>
+    <p>Serveur communautaire Arma Reforger. Non affilié à Bohemia Interactive.</p>
+  </div>
+</footer>
+
+<script>
+// ---- À REMPLIR : ton lien Discord et (optionnel) ta bande-annonce YouTube -------------------------------
+const DISCORD_URL = "https://discord.com/invite/T2FsXVqmBA";
+const YOUTUBE_URL = "";   // ex. "https://www.youtube.com/watch?v=xxxxxxx"
+// --------------------------------------------------------------------------------------------------------
+
+// Card photos: open the full-size image
+const box = document.getElementById("lightbox");
+document.querySelectorAll(".feat [data-full]").forEach(btn => btn.addEventListener("click", () => {
+  const img = box.querySelector("img");
+  img.src = btn.dataset.full; img.alt = btn.querySelector("img").alt;
+  box.showModal();
+}));
+box.addEventListener("click", () => box.close());
+
+if (DISCORD_URL) {
+  for (const id of ["discordBtn", "discordBtn2"]) {
+    const a = document.getElementById(id);
+    a.href = DISCORD_URL; a.target = "_blank"; a.rel = "noopener";
+  }
+}
+if (YOUTUBE_URL) {
+  document.getElementById("trailerA").href = YOUTUBE_URL;
+  document.getElementById("trailerLink").hidden = false;
+}
+</script>
